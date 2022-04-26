@@ -34,11 +34,13 @@ class Basketball:
         self.shot: Optional[int] = None
         self.shot_choices: List[Literal[0, 1, 2, 3, 4]] = [0, 1, 2, 3, 4]
         self.z1: Optional[float] = None
+        self.defense = 0
+        self.opponent = 0
 
+
+    def startGame(self):
         print_intro()
-
         self.defense = get_defense_choice(self.defense_choices)
-
         self.opponent = get_opponents_name()
         self.start_of_period()
 
@@ -383,4 +385,6 @@ def get_opponents_name() -> str:
 
 
 if __name__ == "__main__":
-    Basketball()
+    Basketball().startGame()
+
+
