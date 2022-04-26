@@ -12,8 +12,15 @@ class TestBasketball(TestCase):
 
     def test_defense_choice(self):
         basketballObj = basketball.Basketball()
-        basketball.get_defense_choice(basketballObj.defense_choices)
-        self.assertEqual(6, basketballObj.get_defense())
+        basketball.print_intro()
+        defense = basketball.get_defense_choice(basketballObj.defense_choices)
+        self.assertEqual(6, defense)
+
+    def test_opponents_name(self):
+        basketball.print_intro()
+        opponents_name = basketball.get_opponents_name()
+        self.assertEqual("SeattleU", opponents_name)
+
 
 
 
