@@ -53,6 +53,13 @@ class Basketball:
         self.score[team] += points
         self.print_score()
 
+    def add_defense(self, defense_number):
+
+        self.defense = defense_number
+
+    def get_defense(self):
+        return self.defense
+
     def ball_passed_back(self) -> None:
         print("Ball passed back to you. ", end="")
         self.dartmouth_ball()
@@ -340,6 +347,8 @@ class Basketball:
             self.opponent_non_jumpshot()
         else:
             self.opponent_jumpshot()
+
+
 
 
 def get_defense_choice(defense_choices: List[float]) -> float:
