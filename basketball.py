@@ -44,6 +44,8 @@ class Basketball:
         self.opponent = get_opponents_name()
         self.start_of_period()
 
+
+
     def add_points(self, team: Literal[0, 1], points: Literal[0, 1, 2]) -> None:
         """
         Add points to the score.
@@ -54,7 +56,6 @@ class Basketball:
         self.print_score()
 
     def add_defense(self, defense_number):
-
         self.defense = defense_number
 
     def get_defense(self):
