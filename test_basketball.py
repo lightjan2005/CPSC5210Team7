@@ -28,10 +28,12 @@ class TestBasketball(TestCase):
         self.assertEqual(3, shot)
 
 
-    def test_halftime_should_return_string(self):
+    def test_check_print_score_should_return_true(self):
         basketballObj = basketball.Basketball()
-        halftime = basketballObj.halftime()
-        self.assertEqual(halftime, basketballObj.halftime())
+        basketballObj.add_points(0, 2)
+        self.assertEqual("Score:  0 to 2", basketballObj.print_score())
+
+
 
 
 

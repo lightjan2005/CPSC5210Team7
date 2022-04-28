@@ -37,14 +37,11 @@ class Basketball:
         self.defense = 0
         self.opponent = 0
 
-
     def startGame(self):
         print_intro()
         self.defense = get_defense_choice(self.defense_choices)
         self.opponent = get_opponents_name()
         self.start_of_period()
-
-
 
     def add_points(self, team: Literal[0, 1], points: Literal[0, 1, 2]) -> None:
         """
@@ -96,9 +93,16 @@ class Basketball:
 
     def halftime(self) -> None:
         """called when t = 50, starts a new period"""
-        return print("End of first half")
+        print("End of first half")
+        self.is_halftime()
         # self.print_score()
         # self.start_of_period()
+
+    def is_halftime(self) -> bool:
+        if self.time == 1:
+            return True
+        else:
+            return False
 
     def print_score(self) -> None:
         """Print the current score"""
@@ -115,7 +119,7 @@ class Basketball:
             self.opponent_ball()
 
     def two_minute_warning(self) -> None:
-        """called when t = 92"""
+        """called when t = 3"""
         print("   *** Two minutes left in the game ***")
 
     def dartmouth_jump_shot(self) -> None:
@@ -123,7 +127,7 @@ class Basketball:
         self.time += 1
         if self.time == 1:
             self.halftime()
-        elif self.time == 92:
+        elif self.time == 3:
             self.two_minute_warning()
         print("Jump Shot.")
         # simulates chances of different possible outcomes
@@ -178,9 +182,9 @@ class Basketball:
         called when the user enters 0, 3, or 4
         """
         self.time += 1
-        if self.time == 1:
+        if self.time == 2:
             self.halftime()
-        elif self.time == 92:
+        elif self.time == 4:
             self.two_minute_warning()
 
         if self.shot == 4:
@@ -225,7 +229,7 @@ class Basketball:
         shot = get_dartmouth_ball_choice(self.shot_choices)
         self.shot = shot
 
-        if self.time < 100 or random.random() < 0.5:
+        if self.time < 4 or random.random() < 0.5:
             if self.shot == 1 or self.shot == 2:
                 self.dartmouth_jump_shot()
             else:
@@ -253,7 +257,7 @@ class Basketball:
                     + str(self.score[0])
                 )
                 print("Begin two minute overtime period")
-                self.time = 93
+                self.time = 5
                 self.start_of_period()
 
     def opponent_jumpshot(self) -> None:
@@ -341,15 +345,13 @@ class Basketball:
         Randomly picks jump shot or lay up / set shot.
         """
         self.time += 1
-        if self.time == 1:
+        if self.time == 2:
             self.halftime()
         self.z1 = 10 / 4 * random.random() + 1
         if self.z1 > 2:
             self.opponent_non_jumpshot()
         else:
             self.opponent_jumpshot()
-
-
 
 
 def get_defense_choice(defense_choices: List[float]) -> float:
@@ -396,5 +398,3 @@ def get_opponents_name() -> str:
 
 if __name__ == "__main__":
     Basketball().startGame()
-
-
