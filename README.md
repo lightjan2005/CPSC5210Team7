@@ -12,12 +12,18 @@ Lay Up
 
 Set Shot
 
+
 Both teams use the same defense, but you may call it:
 
 Enter (6): Press
+
 Enter (6.5): Man-to-man
+
 Enter (7): Zone
+
 Enter (7.5): None
+
+
 To change defense, type "0" as your next shot.
 
 Steps to run the tests-
