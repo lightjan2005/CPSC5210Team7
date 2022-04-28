@@ -30,6 +30,14 @@ Steps to run the tests-
 
 1. After cloning the repository, to build and run the tests in python, we had to install the pytest module. 
 
-2. For parameterized tests, install parameterized module (pip install parameterized). 
+2. For parameterized tests, install parameterized module 
+
+   > pip install parameterized 
+
+3. To run the tests, we can run them from the command line which gives a summary of tests that passed/failed 
+
+   > pytest test_basketball.py 
+
+4. To get code coverage run ‘Analyze Code Coverage For All Tests’ from Test dropdown in VSCode. 
 
 
