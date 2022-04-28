@@ -28,4 +28,8 @@ To change defense, type "0" as your next shot.
 
 Steps to run the tests-
 
+1. After cloning the repository, to build and run the tests in python, we had to install the pytest module. 
+
+2. For parameterized tests, install parameterized module (pip install parameterized). 
+
 
