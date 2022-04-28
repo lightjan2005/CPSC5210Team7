@@ -27,7 +27,11 @@ Enter (7.5): None
 To change defense, type "0" as your next shot.
 
 
-Steps to run the tests-
+How to run the tests in PyCharm-
+
+First, in order to see the code coverage in pycharm, you have to download pycharm professional. Then you import our project through our github or our zipfile. Open our file. The interpreter we are using is Python 3.8. You also must install “unittest” and “coverage” package in order to compile the unit tests. Finally, you click on compile at the top right corner. The results of the testing will be shown in the console.  
+
+Steps to run the tests in VSCode-
 
 1. After cloning the repository, to build and run the tests in python, we had to install the pytest module in VSCode. 
 
