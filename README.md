@@ -5,9 +5,13 @@ The game is simply a text-based basketball simulation. There are numbers associa
 There are four types of shots:
 
 Long Jump Shot (30ft)
+
 Short Jump Shot (15ft)
+
 Lay Up
+
 Set Shot
+
 Both teams use the same defense, but you may call it:
 
 Enter (6): Press
