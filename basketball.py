@@ -363,7 +363,7 @@ def get_defense_choice(defense_choices: List[float]) -> float:
 
     # if the input wasn't a valid defense, takes input again
     while defense not in defense_choices:
-        print("Your new defensive allignment is? ", end="")
+        print("Your new defensive alignment is? ", end="")
         try:
             defense = float(input())
         except ValueError:
