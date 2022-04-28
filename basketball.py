@@ -36,6 +36,7 @@ class Basketball:
         self.z1: Optional[float] = None
         self.defense = 0
         self.opponent = 0
+        self.two_minute_warning_message = ""
 
     def startGame(self):
         print_intro()
@@ -51,12 +52,6 @@ class Basketball:
         """
         self.score[team] += points
         self.print_score()
-
-    def add_defense(self, defense_number):
-        self.defense = defense_number
-
-    def get_defense(self):
-        return self.defense
 
     def ball_passed_back(self) -> None:
         print("Ball passed back to you. ", end="")
@@ -120,7 +115,8 @@ class Basketball:
 
     def two_minute_warning(self) -> None:
         """called when t = 3"""
-        print("   *** Two minutes left in the game ***")
+        self.two_minute_warning_message = "   *** Two minutes left in the game ***"
+        print(self.two_minute_warning_message)
 
     def dartmouth_jump_shot(self) -> None:
         """called when the user enters 1 or 2 for their shot"""
