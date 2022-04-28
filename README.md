@@ -26,9 +26,10 @@ Enter (7.5): None
 
 To change defense, type "0" as your next shot.
 
+
 Steps to run the tests-
 
-1. After cloning the repository, to build and run the tests in python, we had to install the pytest module. 
+1. After cloning the repository, to build and run the tests in python, we had to install the pytest module in VSCode. 
 
 2. For parameterized tests, install parameterized module 
 
