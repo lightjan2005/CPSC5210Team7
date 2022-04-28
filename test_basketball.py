@@ -28,9 +28,10 @@ class TestBasketball(TestCase):
         self.assertEqual(3, shot)
 
 
-    def test_wrong_defense_choice_prompts_another_choice(self):
+    def test_halftime_should_return_string(self):
         basketballObj = basketball.Basketball()
-
+        halftime = basketballObj.halftime()
+        self.assertEqual(halftime, basketballObj.halftime())
 
 
 

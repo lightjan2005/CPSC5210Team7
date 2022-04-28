@@ -96,9 +96,9 @@ class Basketball:
 
     def halftime(self) -> None:
         """called when t = 50, starts a new period"""
-        print("\n   ***** End of first half *****\n")
-        self.print_score()
-        self.start_of_period()
+        return print("End of first half")
+        # self.print_score()
+        # self.start_of_period()
 
     def print_score(self) -> None:
         """Print the current score"""
@@ -121,7 +121,7 @@ class Basketball:
     def dartmouth_jump_shot(self) -> None:
         """called when the user enters 1 or 2 for their shot"""
         self.time += 1
-        if self.time == 50:
+        if self.time == 1:
             self.halftime()
         elif self.time == 92:
             self.two_minute_warning()
@@ -178,7 +178,7 @@ class Basketball:
         called when the user enters 0, 3, or 4
         """
         self.time += 1
-        if self.time == 50:
+        if self.time == 1:
             self.halftime()
         elif self.time == 92:
             self.two_minute_warning()
@@ -341,7 +341,7 @@ class Basketball:
         Randomly picks jump shot or lay up / set shot.
         """
         self.time += 1
-        if self.time == 50:
+        if self.time == 1:
             self.halftime()
         self.z1 = 10 / 4 * random.random() + 1
         if self.z1 > 2:
