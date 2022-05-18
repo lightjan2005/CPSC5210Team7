@@ -55,3 +55,67 @@ class Test_BasketBall(unittest.TestCase):
         basketball_obj = Basketball()
         basketball_obj.two_minute_warning()
         self.assertEqual("   *** Two minutes left in the game ***", basketball_obj.two_minute_warning_message)
+
+
+def test_start_game():
+    assert False
+
+
+def test_add_points():
+    assert False
+
+
+def test_ball_passed_back():
+    assert False
+
+
+def test_change_defense():
+    assert False
+
+
+def test_foul_shots():
+    assert False
+
+
+def test_halftime():
+    assert False
+
+
+def test_is_halftime():
+    assert False
+
+
+def test_print_score():
+    assert False
+
+
+def test_start_of_period():
+    assert False
+
+
+def test_two_minute_warning():
+    assert False
+
+
+def test_dartmouth_jump_shot():
+    assert False
+
+
+def test_dartmouth_non_jump_shot():
+    assert False
+
+
+def test_dartmouth_ball():
+    assert False
+
+
+def test_opponent_jumpshot():
+    assert False
+
+
+def test_opponent_non_jumpshot():
+    assert False
+
+
+def test_opponent_ball():
+    assert False
