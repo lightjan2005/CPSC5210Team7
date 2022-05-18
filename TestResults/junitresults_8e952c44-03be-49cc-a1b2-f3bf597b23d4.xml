@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="17" time="1.744" timestamp="2022-04-28T11:59:37.150880" hostname="DESKTOP-MTSIJNC"><testcase classname="test_basketball.Test_BasketBall" name="test_add_points_return_equal_0" file="test_basketball.py" line="7" time="0.009"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+Score:  0 to 2
+
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_add_points_return_equal_1" file="test_basketball.py" line="7" time="0.003"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+Score:  0 to 1
+
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_add_points_return_equal_2" file="test_basketball.py" line="7" time="0.002"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+Score:  0 to 0
+
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_add_points_return_equal_3" file="test_basketball.py" line="7" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+Score:  2 to 0
+
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_add_points_return_equal_4" file="test_basketball.py" line="7" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+Score:  1 to 0
+
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_add_points_return_equal_5" file="test_basketball.py" line="7" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+Score:  0 to 0
+
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_get_defense_choice_0" file="test_basketball.py" line="43" time="0.002"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_get_defense_choice_1" file="test_basketball.py" line="43" time="0.003"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_get_defense_choice_2" file="test_basketball.py" line="43" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_get_defense_choice_3" file="test_basketball.py" line="43" time="0.002"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_shot_choice_0" file="test_basketball.py" line="32" time="0.002"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_shot_choice_0_Name" file="test_basketball.py" line="24" time="0.002"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_shot_choice_1" file="test_basketball.py" line="32" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_shot_choice_2" file="test_basketball.py" line="32" time="0.002"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_shot_choice_3" file="test_basketball.py" line="32" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_shot_choice_4" file="test_basketball.py" line="32" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_basketball.Test_BasketBall" name="test_two_minute_warning" file="test_basketball.py" line="53" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+   *** Two minutes left in the game ***
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>
