@@ -63,12 +63,14 @@ class Test_BasketBall(unittest.TestCase):
 
     def test_halftime(self):
         basketball_obj = Basketball()
-        basketball_obj.is_halftime()
-        self.assertEqual(1, 1, "End of first half")
+        basketball_obj.halftime()
+        self.assertEqual(basketball_obj.halftime(), None)
 
 
     def test_is_halftime(self):
-        self.assertEqual(1, 1, "true")
+        basketball_obj = Basketball()
+        basketball_obj.is_halftime()
+        self.assertEqual(basketball_obj.is_halftime(), False)
 
     def test_print_score(self):
         pass
