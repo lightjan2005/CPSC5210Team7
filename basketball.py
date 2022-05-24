@@ -349,6 +349,12 @@ class Basketball:
         else:
             self.opponent_jumpshot()
 
+    def getTime(self) -> int:
+        return self.time
+
+    def print_Hello(self) -> None:
+        """Print the current score"""
+        print("Hello")
 
 def get_defense_choice(defense_choices: List[float]) -> float:
     """Takes input for a defense"""
@@ -390,6 +396,8 @@ def get_opponents_name() -> str:
     """Take input for opponent's name"""
     print("\nChoose your opponent? ", end="")
     return input()
+
+
 
 
 if __name__ == "__main__":

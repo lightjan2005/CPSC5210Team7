@@ -66,6 +66,7 @@ class Test_BasketBall(unittest.TestCase):
         basketball_obj.is_halftime()
         self.assertEqual(1, 1, "End of first half")
 
+
     def test_is_halftime(self):
         self.assertEqual(1, 1, "true")
 
@@ -80,16 +81,44 @@ class Test_BasketBall(unittest.TestCase):
         basketball_obj.two_minute_warning()
         self.assertEqual("   *** Two minutes left in the game ***", basketball_obj.two_minute_warning_message)
 
+    def test_dartmouth_jump_shot(self):
+        basketball_obj = Basketball()
+        # set defense choice
+        mock_defense_choice = Mock(get_defense_choice, return_value=6)
+        basketball_obj.defense = mock_defense_choice()
+        # set opponents name
+        mock_get_opponents_name = Mock(get_opponents_name, return_value="mock opponent")
+        basketball_obj.opponent = mock_get_opponents_name()
+        # set to be opponents ball
+        # basketball_obj.dartmouth_ball()
 
-def test_dartmouth_jump_shot():
-    pass
+        self.assertEqual(6, basketball_obj.defense)
+        self.assertEqual("mock opponent", basketball_obj.opponent)
+
+        pass
+
+    """
+        This is a test for when the ball is dartmouth's possession.
+        Still configuring the settings before it's dathmouth's possession.
+    """
+    def test_dartmouth_ball(self):
+        basketball_obj = Basketball()
+        # set defense choice
+        mock_defense_choice = Mock(get_defense_choice, return_value=6)
+        basketball_obj.defense = mock_defense_choice()
+        # set opponents name
+        mock_get_opponents_name = Mock(get_opponents_name, return_value="mock opponent")
+        basketball_obj.opponent = mock_get_opponents_name()
+        # set to be dartmouth ball
+
+        # set shot for dartmouth
+        mock_get_darthmouth_ball_choice = Mock(get_dartmouth_ball_choice, return_value=1)
+        basketball_obj.shot = mock_get_darthmouth_ball_choice()
+        self.assertEqual(1, basketball_obj.shot)
+
 
 
 def test_dartmouth_non_jump_shot():
-    pass
-
-
-def test_dartmouth_ball():
     pass
 
 
@@ -103,3 +132,5 @@ def test_opponent_non_jumpshot():
 
 def test_opponent_ball():
     pass
+
+
