@@ -10,20 +10,12 @@ from typing import List, Literal, Optional
 
 
 def print_intro() -> None:
-    print("\t\t\t Basketball")
-    print("\t Creative Computing  Morristown, New Jersey\n\n\n")
-    print("This is Dartmouth College basketball. ")
-    print("Υou will be Dartmouth captain and playmaker.")
-    print("Call shots as follows:")
-    print(
-        "1. Long (30ft.) Jump Shot; "
-        "2. Short (15 ft.) Jump Shot; "
-        "3. Lay up; 4. Set Shot"
-    )
-    print("Both teams will use the same defense. Call Defense as follows:")
-    print("6. Press; 6.5 Man-to-Man; 7. Zone; 7.5 None.")
-    print("To change defense, just type 0 as your next shot.")
-    print("Your starting defense will be? ", end="")
+    print("\t\t\t Basketball\n\t Creative Computing  Morristown, New Jersey\n\n\n\nThis is Dartmouth College "
+          "basketball. \nΥou will be Dartmouth captain and playmaker.\nCall shots as follows:\n1. Long (30ft.) Jump "
+          "Shot; \n2. Short (15 ft.) Jump Shot; \n3. Lay up; 4. Set Shot\nBoth teams will use the same defense. Call "
+          "Defense as follows:\n6. Press; 6.5 Man-to-Man; 7. Zone; 7.5 None.\nTo change defense, just type 0 as your "
+          "next shot.\nYour starting defense will be? ")
+
 
 
 class Basketball:

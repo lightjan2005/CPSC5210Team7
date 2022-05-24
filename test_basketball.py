@@ -66,7 +66,6 @@ class Test_BasketBall(unittest.TestCase):
         basketball_obj.halftime()
         self.assertEqual(basketball_obj.halftime(), None)
 
-
     def test_is_halftime(self):
         basketball_obj = Basketball()
         basketball_obj.is_halftime()
@@ -119,7 +118,6 @@ class Test_BasketBall(unittest.TestCase):
         self.assertEqual(1, basketball_obj.shot)
 
 
-
 def test_dartmouth_non_jump_shot():
     pass
 
@@ -135,4 +133,12 @@ def test_opponent_non_jumpshot():
 def test_opponent_ball():
     pass
 
+def test_print_intro(capfd):
+    print_intro()
+    out, err = capfd.readouterr()
+    assert out == "\t\t\t Basketball\n\t Creative Computing  Morristown, New Jersey\n\n\n\nThis is Dartmouth College " \
+                  "basketball. \nΥou will be Dartmouth captain and playmaker.\nCall shots as follows:\n1. Long (" \
+                  "30ft.) Jump Shot; \n2. Short (15 ft.) Jump Shot; \n3. Lay up; 4. Set Shot\nBoth teams will use the " \
+                  "same defense. Call Defense as follows:\n6. Press; 6.5 Man-to-Man; 7. Zone; 7.5 None.\nTo change " \
+                  "defense, just type 0 as your next shot.\nYour starting defense will be? \n "
 
