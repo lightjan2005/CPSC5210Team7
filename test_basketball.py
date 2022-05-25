@@ -140,7 +140,11 @@ def test_opponent_ball():
 def test_print_intro(capfd):
     print_intro()
     out, err = capfd.readouterr()
-    assert out == "\t\t\t Basketball\n\t Creative Computing  Morristown, New Jersey\n\n\n\nThis is Dartmouth College basketball. \nΥou will be Dartmouth captain and playmaker.\nCall shots as follows:\n1. Long (30ft.) Jump Shot; \n2. Short (15 ft.) Jump Shot; \n3. Lay up; 4. Set Shot\nBoth teams will use the same defense. Call Defense as follows:\n6. Press; 6.5 Man-to-Man; 7. Zone; 7.5 None.\nTo change defense, just type 0 as your next shot.\nYour starting defense will be? \n"
+    assert out == "\t\t\t Basketball\n\t Creative Computing  Morristown, New Jersey\n\n\n\nThis is Dartmouth College " \
+                  "basketball. \nΥou will be Dartmouth captain and playmaker.\nCall shots as follows:\n1. Long (" \
+                  "30ft.) Jump Shot; \n2. Short (15 ft.) Jump Shot; \n3. Lay up; 4. Set Shot\nBoth teams will use the " \
+                  "same defense. Call Defense as follows:\n6. Press; 6.5 Man-to-Man; 7. Zone; 7.5 None.\nTo change " \
+                  "defense, just type 0 as your next shot.\nYour starting defense will be?\n"
 
 
 @patch('basketball.set_defense_choice', return_value=6.0)
@@ -155,12 +159,6 @@ class Test_Input_Defense_choice(TestCase):
 
 
 class Test_DartMouth_Jump_Shot(TestCase):
-
-    # def test_dartmouth_jump_shot_halftime(self):
-    #     basketball_obj = Basketball()
-    #     basketball_obj.time = 0
-    #     basketball_obj.dartmouth_jump_shot()
-    #     self.assertEqual(1, basketball_obj.time)
 
     @patch('basketball.Basketball.set_random_number', return_value=0.342)
     @patch('basketball.get_dartmouth_ball_choice', return_value=1)
