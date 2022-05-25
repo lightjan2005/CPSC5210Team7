@@ -152,3 +152,21 @@ class Test_Input_Defense_choice(TestCase):
         basketball_obj.startGame()
         self.assertEqual(get_defense_choice(basketball_obj.defense_choices), 6)
         self.assertEqual(get_opponents_name(), "SU")
+
+
+class Test_DartMouth_Jump_Shot(TestCase):
+
+    # def test_dartmouth_jump_shot_halftime(self):
+    #     basketball_obj = Basketball()
+    #     basketball_obj.time = 0
+    #     basketball_obj.dartmouth_jump_shot()
+    #     self.assertEqual(1, basketball_obj.time)
+
+    @patch('basketball.Basketball.set_random_number', return_value=0.342)
+    @patch('basketball.get_dartmouth_ball_choice', return_value=1)
+    def test_dartmouth_jump_shot_two_minute_warning(self, input,input2):
+        basketball_obj = Basketball()
+        basketball_obj.time = 2
+        basketball_obj.defense = 6
+        basketball_obj.dartmouth_jump_shot()
+

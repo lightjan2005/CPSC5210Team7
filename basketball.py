@@ -23,8 +23,9 @@ class Basketball:
         self.shot_choices: List[Literal[0, 1, 2, 3, 4]] = [0, 1, 2, 3, 4]
         self.z1: Optional[float] = None
         self.defense = 0
-        self.opponent = 0
+        self.opponent = ""
         self.two_minute_warning_message = ""
+        self.random_number = 0
 
     def startGame(self):
         print_intro()
@@ -115,10 +116,11 @@ class Basketball:
             self.two_minute_warning()
         print("Jump Shot.")
         # simulates chances of different possible outcomes
-        if random.random() > 0.341 * self.defense / 8:
-            if random.random() > 0.682 * self.defense / 8:
-                if random.random() > 0.782 * self.defense / 8:
-                    if random.random() > 0.843 * self.defense / 8:
+        self.set_random_number()
+        if self.random_number > 0.341 * self.defense / 8:
+            if self.random_number > 0.682 * self.defense / 8:
+                if self.random_number > 0.782 * self.defense / 8:
+                    if self.random_number > 0.843 * self.defense / 8:
                         print("Charging foul. Dartmouth loses ball.\n")
                         self.opponent_ball()
                     else:
@@ -126,7 +128,7 @@ class Basketball:
                         self.foul_shots(1)
                         self.opponent_ball()
                 else:
-                    if random.random() > 0.5:
+                    if self.random_number > 0.5:
                         print(
                             "Shot is blocked. Ball controlled by "
                             + self.opponent
@@ -138,13 +140,13 @@ class Basketball:
                         self.dartmouth_ball()
             else:
                 print("Shot is off target.")
-                if self.defense / 6 * random.random() > 0.45:
+                if self.defense / 6 * self.random_number > 0.45:
                     print("Rebound to " + self.opponent + "\n")
                     self.opponent_ball()
                 else:
                     print("Dartmouth controls the rebound.")
-                    if random.random() > 0.4:
-                        if self.defense == 6 and random.random() > 0.6:
+                    if self.random_number > 0.4:
+                        if self.defense == 6 and self.random_number > 0.6:
                             print("Pass stolen by " + self.opponent + ", easy lay up")
                             self.add_points(0, 2)
                             self.dartmouth_ball()
@@ -247,9 +249,9 @@ class Basketball:
     def opponent_jumpshot(self) -> None:
         """Simulate the opponents jumpshot"""
         print("Jump Shot.")
-        if 8 / self.defense * random.random() > 0.35:
-            if 8 / self.defense * random.random() > 0.75:
-                if 8 / self.defense * random.random() > 0.9:
+        if 8 / self.defense * self.random_number > 0.35:
+            if 8 / self.defense * self.random_number > 0.75:
+                if 8 / self.defense * self.random_number > 0.9:
                     print("Offensive foul. Dartmouth's ball.\n")
                     self.dartmouth_ball()
                 else:
@@ -257,22 +259,22 @@ class Basketball:
                     self.dartmouth_ball()
             else:
                 print("Shot is off the rim.")
-                if self.defense / 6 * random.random() > 0.5:
+                if self.defense / 6 * self.random_number > 0.5:
                     print(self.opponent + " controls the rebound.")
                     if self.defense == 6:
-                        if random.random() > 0.75:
+                        if self.random_number > 0.75:
                             print("Ball stolen. Easy lay up for Dartmouth.")
                             self.add_points(1, 2)
                             self.opponent_ball()
                         else:
-                            if random.random() > 0.5:
+                            if self.random_number > 0.5:
                                 print()
                                 self.opponent_non_jumpshot()
                             else:
                                 print("Pass back to " + self.opponent + " guard.\n")
                                 self.opponent_ball()
                     else:
-                        if random.random() > 0.5:
+                        if self.random_number > 0.5:
                             self.opponent_non_jumpshot()
                         else:
                             print("Pass back to " + self.opponent + " guard.\n")
@@ -331,7 +333,7 @@ class Basketball:
         self.time += 1
         if self.time == 2:
             self.halftime()
-        self.z1 = 10 / 4 * random.random() + 1
+        self.z1 = 10 / 4 * self.random_number + 1
         if self.z1 > 2:
             self.opponent_non_jumpshot()
         else:
@@ -340,8 +342,12 @@ class Basketball:
     def getTime(self) -> int:
         return self.time
 
+    def set_random_number(self):
+        self.random_number = random.random()
 
-# modify try except to defense input and use for loop to convert each char to float, if contain non-changeable char, set defense to none
+
+# modify try except to defense input and use for loop to convert each char to float, if contain non-changeable char,
+# set defense to none
 def set_defense_choice() -> float:
     try:
         defense = float(input())
@@ -384,15 +390,18 @@ def get_dartmouth_ball_choice(shot_choices: List[Literal[0, 1, 2, 3, 4]]) -> int
     assert isinstance(shot, int)
     return shot
 
+
 def set_opponents_name() -> str:
     opponent = input()
     return opponent
+
 
 def get_opponents_name() -> str:
     """Take input for opponent's name"""
     print("\nChoose your opponent? ", end="")
 
     return set_opponents_name()
+
 
 if __name__ == "__main__":
     Basketball().startGame()
