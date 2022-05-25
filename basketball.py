@@ -10,8 +10,8 @@ from typing import List, Literal, Optional
 
 
 def print_intro() -> None:
-    print("\t\t\t Basketball\n\t Creative Computing  Morristown, New Jersey\n\n\n\nThis is Dartmouth College basketball. \nΥou will be Dartmouth captain and playmaker.\nCall shots as follows:\n1. Long (30ft.) Jump Shot; \n2. Short (15 ft.) Jump Shot; \n3. Lay up; 4. Set Shot\nBoth teams will use the same defense. Call Defense as follows:\n6. Press; 6.5 Man-to-Man; 7. Zone; 7.5 None.\nTo change defense, just type 0 as your next shot.\nYour starting defense will be? ")
-
+    print(
+        "\t\t\t Basketball\n\t Creative Computing  Morristown, New Jersey\n\n\n\nThis is Dartmouth College basketball. \nΥou will be Dartmouth captain and playmaker.\nCall shots as follows:\n1. Long (30ft.) Jump Shot; \n2. Short (15 ft.) Jump Shot; \n3. Lay up; 4. Set Shot\nBoth teams will use the same defense. Call Defense as follows:\n6. Press; 6.5 Man-to-Man; 7. Zone; 7.5 None.\nTo change defense, just type 0 as your next shot.\nYour starting defense will be? ")
 
 
 class Basketball:
@@ -30,7 +30,7 @@ class Basketball:
         print_intro()
         self.defense = get_defense_choice(self.defense_choices)
         self.opponent = get_opponents_name()
-        self.start_of_period()
+        # self.start_of_period()
 
     def add_points(self, team: Literal[0, 1], points: Literal[0, 1, 2]) -> None:
         """
@@ -340,16 +340,21 @@ class Basketball:
     def getTime(self) -> int:
         return self.time
 
-    def print_Hello(self) -> None:
-        """Print the current score"""
-        print("Hello")
 
-def get_defense_choice(defense_choices: List[float]) -> float:
-    """Takes input for a defense"""
+# modify try except to defense input and use for loop to convert each char to float, if contain non-changeable char, set defense to none
+def set_defense_choice() -> float:
     try:
         defense = float(input())
     except ValueError:
         defense = None
+
+    return defense
+
+
+def get_defense_choice(defense_choices: List[float]) -> float:
+    """Takes input for a defense"""
+
+    defense = set_defense_choice()
 
     # if the input wasn't a valid defense, takes input again
     while defense not in defense_choices:
@@ -379,14 +384,15 @@ def get_dartmouth_ball_choice(shot_choices: List[Literal[0, 1, 2, 3, 4]]) -> int
     assert isinstance(shot, int)
     return shot
 
+def set_opponents_name() -> str:
+    opponent = input()
+    return opponent
 
 def get_opponents_name() -> str:
     """Take input for opponent's name"""
     print("\nChoose your opponent? ", end="")
-    return input()
 
-
-
+    return set_opponents_name()
 
 if __name__ == "__main__":
     Basketball().startGame()

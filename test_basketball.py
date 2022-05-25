@@ -1,6 +1,8 @@
+from unittest import TestCase
+
 from basketball import *
 from parameterized import parameterized
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 import unittest
 
 
@@ -102,6 +104,7 @@ class Test_BasketBall(unittest.TestCase):
         This is a test for when the ball is dartmouth's possession.
         Still configuring the settings before it's dathmouth's possession.
     """
+
     def test_dartmouth_ball(self):
         basketball_obj = Basketball()
         # set defense choice
@@ -133,8 +136,19 @@ def test_opponent_non_jumpshot():
 def test_opponent_ball():
     pass
 
+
 def test_print_intro(capfd):
     print_intro()
     out, err = capfd.readouterr()
     assert out == "\t\t\t Basketball\n\t Creative Computing  Morristown, New Jersey\n\n\n\nThis is Dartmouth College basketball. \nΥou will be Dartmouth captain and playmaker.\nCall shots as follows:\n1. Long (30ft.) Jump Shot; \n2. Short (15 ft.) Jump Shot; \n3. Lay up; 4. Set Shot\nBoth teams will use the same defense. Call Defense as follows:\n6. Press; 6.5 Man-to-Man; 7. Zone; 7.5 None.\nTo change defense, just type 0 as your next shot.\nYour starting defense will be? \n"
 
+
+@patch('basketball.set_defense_choice', return_value=6.0)
+@patch('basketball.set_opponents_name', return_value="SU")
+class Test_Input_Defense_choice(TestCase):
+
+    def test_start_game(self, input, input2):
+        basketball_obj = Basketball()
+        basketball_obj.startGame()
+        self.assertEqual(get_defense_choice(basketball_obj.defense_choices), 6)
+        self.assertEqual(get_opponents_name(), "SU")
