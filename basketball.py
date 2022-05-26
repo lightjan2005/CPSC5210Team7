@@ -29,7 +29,7 @@ class Basketball:
         self.defense = 0
         self.opponent = ""
         self.two_minute_warning_message = ""
-        self.random_number = 0
+        self.random_number = 0.0
 
     def startGame(self):
         print_intro()
@@ -120,7 +120,7 @@ class Basketball:
             self.two_minute_warning()
         print("Jump Shot.")
         # simulates chances of different possible outcomes
-        self.set_random_number()
+        self.random_number = self.set_random_number()
         if self.random_number > 0.341 * self.defense / 8:
             if self.random_number > 0.682 * self.defense / 8:
                 if self.random_number > 0.782 * self.defense / 8:
@@ -297,24 +297,24 @@ class Basketball:
             print("Set shot.")
         else:
             print("Lay up")
-        if 7 / self.defense * random.random() > 0.413:
+        if 7 / self.defense * self.random_number > 0.413:
             print("Shot is missed.")
-            if self.defense / 6 * random.random() > 0.5:
+            if self.defense / 6 * self.random_number > 0.5:
                 print(self.opponent + " controls the rebound.")
                 if self.defense == 6:
-                    if random.random() > 0.75:
+                    if self.random_number > 0.75:
                         print("Ball stolen. Easy lay up for Dartmouth.")
                         self.add_points(1, 2)
                         self.opponent_ball()
                     else:
-                        if random.random() > 0.5:
+                        if self.random_number > 0.5:
                             print()
                             self.opponent_non_jumpshot()
                         else:
                             print("Pass back to " + self.opponent + " guard.\n")
                             self.opponent_ball()
                 else:
-                    if random.random() > 0.5:
+                    if self.random_number > 0.5:
                         print()
                         self.opponent_non_jumpshot()
                     else:
@@ -346,9 +346,9 @@ class Basketball:
     def getTime(self) -> int:
         return self.time
 
-    def set_random_number(self):
-        self.random_number = random.random()
-
+    def set_random_number(self) -> float:
+        num = random.random()
+        return num
 
 # modify try except to defense input and use for loop to convert each char to float, if contain non-changeable char,
 # set defense to none

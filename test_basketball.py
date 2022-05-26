@@ -168,3 +168,15 @@ class Test_DartMouth_Jump_Shot(TestCase):
         basketball_obj.defense = 6
         basketball_obj.dartmouth_jump_shot()
 
+    @patch('basketball.Basketball.set_random_number', return_value=0.4)
+    @patch('basketball.get_dartmouth_ball_choice', return_value=1)
+    def test_dartmouth_jump_shot_halftime(self, input, input2):
+        basketball_obj = Basketball()
+        basketball_obj.time = 0
+        basketball_obj.defense = 6
+        basketball_obj.dartmouth_jump_shot()
+
+
+
+
+
