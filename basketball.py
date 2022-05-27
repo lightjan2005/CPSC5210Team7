@@ -223,7 +223,8 @@ class Basketball:
                         print("Ball passed back to you.\n")
                         self.dartmouth_ball()
                     else:
-                        self.dartmouth_non_jump_shot()
+                        #self.dartmouth_non_jump_shot()
+                        self.dartmouth_jump_shot()
                 else:
                     print(self.opponent + " controls the rebound.\n")
                     self.opponent_ball()
