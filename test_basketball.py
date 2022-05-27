@@ -152,7 +152,7 @@ def test_print_intro(capfd):
 @patch('basketball.Basketball.set_random_number', return_value=0.7)
 @patch('basketball.get_dartmouth_ball_choice', return_value=1)
 @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
-class Test_Input_Defense_choice(TestCase):
+class Test_Input_start_game(TestCase):
 
     def test_start_game(self, input, input2,input3,input4,input5):
         basketball_obj = Basketball()
