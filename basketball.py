@@ -67,8 +67,10 @@ class Basketball:
     def foul_shots(self, team: Literal[0, 1]) -> None:
         """Simulate two foul shots for a player and adds the points."""
         print("Shooter fouled.  Two shots.")
-        if random.random() > 0.49:
-            if random.random() > 0.75:
+        random_num = self.get_foul_shot_random()
+
+        if random_num > 0.49:
+            if random_num > 0.75:
                 print("Both shots missed.")
             else:
                 print("Shooter makes one shot and misses one.")
@@ -473,7 +475,8 @@ class Basketball:
     def set_dartmouth_non_jump_shot_random_number6(self) -> float:
         return random.random()
 
-
+    def get_foul_shot_random(self) ->float:
+        return random.random()
 
 # modify try except to defense input and use for loop to convert each char to float, if contain non-changeable char,
 # set defense to none
