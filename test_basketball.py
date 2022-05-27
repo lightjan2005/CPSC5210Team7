@@ -147,15 +147,20 @@ def test_print_intro(capfd):
                   "defense, just type 0 as your next shot.\nYour starting defense will be?\n"
 
 
-# @patch('basketball.set_defense_choice', return_value=6.0)
-# @patch('basketball.set_opponents_name', return_value="SU")
-# class Test_Input_Defense_choice(TestCase):
-#
-#     def test_start_game(self, input, input2):
-#         basketball_obj = Basketball()
-#         basketball_obj.startGame()
-#         self.assertEqual(get_defense_choice(basketball_obj.defense_choices), 6)
-#         self.assertEqual(get_opponents_name(), "SU")
+@patch('basketball.set_defense_choice', return_value=6.0)
+@patch('basketball.set_opponents_name', return_value="SU")
+@patch('basketball.Basketball.set_random_number', return_value=0.7)
+@patch('basketball.get_dartmouth_ball_choice', return_value=1)
+@patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
+class Test_Input_Defense_choice(TestCase):
+
+    def test_start_game(self, input, input2,input3,input4,input5):
+        basketball_obj = Basketball()
+        basketball_obj.startGame()
+        basketball_obj.add_points(0,2)
+        self.assertEqual(get_defense_choice(basketball_obj.defense_choices), 6)
+        self.assertEqual(get_opponents_name(), "SU")
+
 
 
 class Test_DartMouth_Jump_Shot(TestCase):

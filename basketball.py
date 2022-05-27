@@ -35,7 +35,7 @@ class Basketball:
         print_intro()
         self.defense = get_defense_choice(self.defense_choices)
         self.opponent = get_opponents_name()
-        # self.start_of_period()
+        self.start_of_period()
 
     def add_points(self, team: Literal[0, 1], points: Literal[0, 1, 2]) -> None:
         """
@@ -101,7 +101,8 @@ class Basketball:
     def start_of_period(self) -> None:
         """Simulate a center jump for posession at the beginning of a period"""
         print("Center jump")
-        if random.random() > 0.6:
+        random = self.set_random_number()
+        if random > 0.6:
             print("Dartmouth controls the tap.\n")
             self.dartmouth_ball()
         else:
