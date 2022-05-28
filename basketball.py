@@ -50,16 +50,12 @@ class Basketball:
         print("Ball passed back to you. ", end="")
         self.dartmouth_ball()
 
+
     def change_defense(self) -> None:
         """change defense, called when the user enters 0 for their shot"""
         defense = None
 
-        while defense not in self.defense_choices:
-            print("Your new defensive allignment is? ")
-            try:
-                defense = float(input())
-            except ValueError:
-                continue
+        defense = get_new_defense_choice(defense,self.defense_choices)
         assert isinstance(defense, float)
         self.defense = defense
         self.dartmouth_ball()
@@ -182,9 +178,6 @@ class Basketball:
 
         called when the user enters 0, 3, or 4
         """
-        if counter == 3:
-            print("ball stolen. Opponents Ball")
-            self.opponent_ball()
 
         self.time += 1
         if self.time == 10:
@@ -228,7 +221,11 @@ class Basketball:
                         print("Ball passed back to you.\n")
                         self.dartmouth_ball()
                     else:
-                        self.dartmouth_non_jump_shot(counter + 1)
+                        if counter == 3:
+                            print("ball stolen. Opponents Ball")
+                            self.opponent_ball()
+                        else:
+                            self.dartmouth_non_jump_shot(counter + 1)
                 else:
                     print(self.opponent + " controls the rebound.\n")
                     self.opponent_ball()
@@ -486,7 +483,7 @@ class Basketball:
 
 # modify try except to defense input and use for loop to convert each char to float, if contain non-changeable char,
 # set defense to none
-def set_defense_choice() -> float:
+def get_defense_choice2() -> float:
     try:
         defense = float(input())
     except ValueError:
@@ -494,12 +491,7 @@ def set_defense_choice() -> float:
 
     return defense
 
-
-def get_defense_choice(defense_choices: List[float]) -> float:
-    """Takes input for a defense"""
-
-    defense = set_defense_choice()
-
+def get_new_defense_choice(defense, defense_choices: List[float]) -> float:
     # if the input wasn't a valid defense, takes input again
     while defense not in defense_choices:
         print("Your new defensive alignment is? ", end="")
@@ -507,6 +499,14 @@ def get_defense_choice(defense_choices: List[float]) -> float:
             defense = float(input())
         except ValueError:
             continue
+    return defense
+
+def get_defense_choice(defense_choices: List[float]) -> float:
+    """Takes input for a defense"""
+
+    defense = get_defense_choice2()
+    defense = get_new_defense_choice(defense, defense_choices)
+
     assert isinstance(defense, float)
     return defense
 
