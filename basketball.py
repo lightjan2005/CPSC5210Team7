@@ -176,12 +176,16 @@ class Basketball:
             self.add_points(1, 2)
             self.opponent_ball()
 
-    def dartmouth_non_jump_shot(self) -> None:
+    def dartmouth_non_jump_shot(self,counter = 0) -> None:
         """
         Lay up, set shot, or defense change
 
         called when the user enters 0, 3, or 4
         """
+        if counter == 3:
+            print("ball stolen. Opponents Ball")
+            self.opponent_ball()
+
         self.time += 1
         if self.time == 10:
             self.halftime()
@@ -195,16 +199,17 @@ class Basketball:
         elif self.shot == 0:
             self.change_defense()
 
-        random_number1 = self.set_dartmouth_non_jump_shot_random_number1()
-        random_number2 = self.set_dartmouth_non_jump_shot_random_number2()
+        random_number_1 = self.set_dartmouth_non_jump_shot_random_number1()
+        random_number_2 = self.set_dartmouth_non_jump_shot_random_number2()
         random_number_3 = self.set_dartmouth_non_jump_shot_random_number3()
         random_number_4 = self.set_dartmouth_non_jump_shot_random_number4()
         random_number_5 = self.set_dartmouth_non_jump_shot_random_number5()
         random_number_6 = self.set_dartmouth_non_jump_shot_random_number6()
 
+
         # simulates different outcomes after a lay up or set shot
-        if 7 / self.defense * random_number1 > 0.4:
-            if 7 / self.defense * random_number2 > 0.7:
+        if 7 / self.defense * random_number_1 > 0.4:
+            if 7 / self.defense * random_number_2 > 0.7:
                 if 7 / self.defense * random_number_3 > 0.875:
                     if 7 / self.defense * random_number_4 > 0.925:
                         print("Charging foul. Dartmouth loses the ball.\n")
@@ -223,8 +228,7 @@ class Basketball:
                         print("Ball passed back to you.\n")
                         self.dartmouth_ball()
                     else:
-                        #self.dartmouth_non_jump_shot()
-                        self.dartmouth_jump_shot()
+                        self.dartmouth_non_jump_shot(counter + 1)
                 else:
                     print(self.opponent + " controls the rebound.\n")
                     self.opponent_ball()
