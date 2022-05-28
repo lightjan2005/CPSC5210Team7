@@ -686,6 +686,52 @@ class Test_Foul_Shot(TestCase):
         basketball_obj.foul_shots(0)
         self.assertEqual(basketball_obj.score[0], 1)
 
+class Test_Setters_Getters(TestCase):
+
+    @patch('builtins.input',lambda *args: 2.0)
+    def test_get_defense_choice_2_defense_normal(self):
+        get_defense_choice2()
+
+    @patch('builtins.input', lambda *args: 'a')
+    def test_get_defense_choice_2_defense_String(self):
+        get_defense_choice2()
+
+    @patch('builtins.input', lambda *args: 6.0)
+    def test_get_new_defense_choice_defense_normal(self):
+        basketball_obj = Basketball()
+        get_new_defense_choice(1,basketball_obj.defense_choices)
+
+    @patch('builtins.input', lambda *args: 'a')
+    def test_get_new_defense_choice_defense_invalid_value(self):
+        basketball_obj = Basketball()
+        get_new_defense_choice(1, basketball_obj.defense_choices)
+
+    @patch('builtins.input', lambda *args: 'SU')
+    def test_set_opponents_name(self):
+        set_opponents_name()
+
+    @patch('builtins.input', lambda *args: 1)
+    def test_set_and_return_shot_valid(self):
+        set_and_return_shot()
+
+    @patch('builtins.input', lambda *args: 'a')
+    def test_set_and_return_shot_Invalid(self):
+        set_and_return_shot()
+
+    @patch('builtins.input', lambda *args: 1)
+    def test_get_dartmouth_ball_choice(self):
+        basketball_obj = Basketball()
+        get_dartmouth_ball_choice(basketball_obj.shot_choices)
+
+    @patch('builtins.input', lambda *args: 1)
+    def test_get_new_shot_choice_valid(self):
+        basketball_obj = Basketball()
+        get_new_shot_choice(10,basketball_obj.shot_choices)
+
+    @patch('builtins.input', lambda *args: 'a')
+    def test_get_new_shot_choice_Invalid(self):
+        basketball_obj = Basketball()
+        get_new_shot_choice(10, basketball_obj.shot_choices)
 
 class Test_Dartmouth_jump_shot_random_numbers(TestCase):
     def test_set_random_number(self):

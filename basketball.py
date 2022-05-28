@@ -50,12 +50,11 @@ class Basketball:
         print("Ball passed back to you. ", end="")
         self.dartmouth_ball()
 
-
     def change_defense(self) -> None:
         """change defense, called when the user enters 0 for their shot"""
         defense = None
 
-        defense = get_new_defense_choice(defense,self.defense_choices)
+        defense = get_new_defense_choice(defense, self.defense_choices)
         assert isinstance(defense, float)
         self.defense = defense
         self.dartmouth_ball()
@@ -172,7 +171,7 @@ class Basketball:
             self.add_points(1, 2)
             self.opponent_ball()
 
-    def dartmouth_non_jump_shot(self,counter = 0) -> None:
+    def dartmouth_non_jump_shot(self, counter=0) -> None:
         """
         Lay up, set shot, or defense change
 
@@ -198,7 +197,6 @@ class Basketball:
         random_number_4 = self.set_dartmouth_non_jump_shot_random_number4()
         random_number_5 = self.set_dartmouth_non_jump_shot_random_number5()
         random_number_6 = self.set_dartmouth_non_jump_shot_random_number6()
-
 
         # simulates different outcomes after a lay up or set shot
         if 7 / self.defense * random_number_1 > 0.4:
@@ -320,7 +318,7 @@ class Basketball:
             self.add_points(0, 2)
             self.dartmouth_ball()
 
-    def opponent_non_jumpshot(self, counter = 0) -> None:
+    def opponent_non_jumpshot(self, counter=0) -> None:
         """Simulate opponents lay up or set shot."""
         if self.z1 > 3:  # type: ignore
             print("Set shot.")
@@ -348,7 +346,7 @@ class Basketball:
                                 print("Ball stolen. Dartmouth ball.")
                                 self.dartmouth_ball()
                             else:
-                                self.opponent_non_jumpshot(counter+1)
+                                self.opponent_non_jumpshot(counter + 1)
                         else:
                             print("Pass back to " + self.opponent + " guard.\n")
                             self.opponent_ball()
@@ -359,7 +357,7 @@ class Basketball:
                             print("Ball stolen. Dartmouth ball.")
                             self.dartmouth_ball()
                         else:
-                            self.opponent_non_jumpshot(counter+1)
+                            self.opponent_non_jumpshot(counter + 1)
                     else:
                         print("Pass back to " + self.opponent + " guard\n")
                         self.opponent_ball()
@@ -388,14 +386,7 @@ class Basketball:
         else:
             self.opponent_jumpshot()
 
-    def getTime(self) -> int:
-        return self.time
-
     def set_random_number(self) -> float:
-        num = random.random()
-        return num
-
-    def set_random_number1(self) -> float:
         num = random.random()
         return num
 
@@ -461,33 +452,46 @@ class Basketball:
 
     def set_opponent_jump_shot_random_number1(self) -> float:
         return random.random()
+
     def set_opponent_jump_shot_random_number2(self) -> float:
         return random.random()
+
     def set_opponent_jump_shot_random_number3(self) -> float:
         return random.random()
+
     def set_opponent_jump_shot_random_number4(self) -> float:
         return random.random()
+
     def set_opponent_jump_shot_random_number5(self) -> float:
         return random.random()
+
     def set_opponent_jump_shot_random_number6(self) -> float:
         return random.random()
+
     def set_opponent_jump_shot_random_number7(self) -> float:
         return random.random()
+
     def set_dartmouth_non_jump_shot_random_number1(self) -> float:
         return random.random()
+
     def set_dartmouth_non_jump_shot_random_number2(self) -> float:
         return random.random()
+
     def set_dartmouth_non_jump_shot_random_number3(self) -> float:
         return random.random()
+
     def set_dartmouth_non_jump_shot_random_number4(self) -> float:
         return random.random()
+
     def set_dartmouth_non_jump_shot_random_number5(self) -> float:
         return random.random()
+
     def set_dartmouth_non_jump_shot_random_number6(self) -> float:
         return random.random()
 
-    def get_foul_shot_random(self) ->float:
+    def get_foul_shot_random(self) -> float:
         return random.random()
+
 
 # modify try except to defense input and use for loop to convert each char to float, if contain non-changeable char,
 # set defense to none
@@ -499,15 +503,21 @@ def get_defense_choice2() -> float:
 
     return defense
 
-def get_new_defense_choice(defense, defense_choices: List[float]) -> float:
+
+def get_new_defense_choice(defense, defense_choices: List[float], counter=0) -> float:
     # if the input wasn't a valid defense, takes input again
     while defense not in defense_choices:
         print("Your new defensive alignment is? ", end="")
         try:
             defense = float(input())
         except ValueError:
-            continue
+            if counter != 3:
+                counter += 1
+                continue
+            else:
+                defense = 6
     return defense
+
 
 def get_defense_choice(defense_choices: List[float]) -> float:
     """Takes input for a defense"""
@@ -519,20 +529,34 @@ def get_defense_choice(defense_choices: List[float]) -> float:
     return defense
 
 
-def get_dartmouth_ball_choice(shot_choices: List[Literal[0, 1, 2, 3, 4]]) -> int:
-    print("Your shot? ", end="")
-    shot = None
+def set_and_return_shot() -> int:
     try:
         shot = int(input())
     except ValueError:
         shot = None
+    return shot
 
+def get_new_shot_choice(shot, shot_choices: List[Literal[0, 1, 2, 3, 4]], counter=0) -> float:
+    # if the input wasn't a valid defense, takes input again
     while shot not in shot_choices:
         print("Incorrect answer. Retype it. Your shot? ", end="")
         try:
             shot = int(input())
         except Exception:
-            continue
+            if counter != 3:
+                counter += 1
+                continue
+            else:
+                shot = 1
+    return shot
+
+def get_dartmouth_ball_choice(shot_choices: List[Literal[0, 1, 2, 3, 4]]) -> int:
+    print("Your shot? ", end="")
+    shot = None
+
+    shot = set_and_return_shot()
+
+    shot = get_new_shot_choice(shot,shot_choices)
     assert isinstance(shot, int)
     return shot
 
