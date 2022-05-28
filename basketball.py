@@ -320,7 +320,7 @@ class Basketball:
             self.add_points(0, 2)
             self.dartmouth_ball()
 
-    def opponent_non_jumpshot(self) -> None:
+    def opponent_non_jumpshot(self, counter = 0) -> None:
         """Simulate opponents lay up or set shot."""
         if self.z1 > 3:  # type: ignore
             print("Set shot.")
@@ -344,14 +344,22 @@ class Basketball:
                     else:
                         if random_number4 > 0.5:
                             print()
-                            self.opponent_non_jumpshot()
+                            if counter == 3:
+                                print("Ball stolen. Dartmouth ball.")
+                                self.dartmouth_ball()
+                            else:
+                                self.opponent_non_jumpshot(counter+1)
                         else:
                             print("Pass back to " + self.opponent + " guard.\n")
                             self.opponent_ball()
                 else:
                     if random_number5 > 0.5:
                         print()
-                        self.opponent_non_jumpshot()
+                        if counter == 3:
+                            print("Ball stolen. Dartmouth ball.")
+                            self.dartmouth_ball()
+                        else:
+                            self.opponent_non_jumpshot(counter+1)
                     else:
                         print("Pass back to " + self.opponent + " guard\n")
                         self.opponent_ball()

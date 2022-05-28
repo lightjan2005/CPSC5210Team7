@@ -169,7 +169,7 @@ class Test_Input_start_game_start_of_period(TestCase):
     @patch('basketball.Basketball.set_opponent_jump_shot_random_number1', return_value=0.1)
     @patch('basketball.get_dartmouth_ball_choice', return_value=2)
     @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
-    def test_start_game_start_of_period_opponent_ball(self, input, input2, input3, input4, input5,input6,input7):
+    def test_start_game_start_of_period_opponent_ball(self, input, input2, input3, input4, input5, input6, input7):
         basketball_obj = Basketball()
         basketball_obj.time = 20
         basketball_obj.add_points(0, 4)
@@ -461,10 +461,10 @@ class Test_DartMouth_Non_Jump_Shot(TestCase):
     @patch('basketball.get_dartmouth_ball_choice', return_value=2)
     @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
     def test_dartmouth_non_jump_shot_two_minute_warning_shot_off_rim_darthmouth_non_jump_shot(self, input, input2,
-                                                                                          input3, input4,
-                                                                                          input5, input6, input7,
-                                                                                          input8
-                                                                                          ):
+                                                                                              input3, input4,
+                                                                                              input5, input6, input7,
+                                                                                              input8
+                                                                                              ):
         basketball_obj = Basketball()
         basketball_obj.shot = 4
         basketball_obj.defense = 7
@@ -479,10 +479,10 @@ class Test_DartMouth_Non_Jump_Shot(TestCase):
     @patch('basketball.get_dartmouth_ball_choice', return_value=2)
     @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
     def test_dartmouth_non_jump_shot_two_minute_warning_shot_off_rim_opponent_controls_rebound(self, input, input2,
-                                                                                              input3, input4,
-                                                                                              input5, input6, input7,
+                                                                                               input3, input4,
+                                                                                               input5, input6, input7,
 
-                                                                                              ):
+                                                                                               ):
         basketball_obj = Basketball()
         basketball_obj.shot = 4
         basketball_obj.defense = 7
@@ -492,12 +492,93 @@ class Test_DartMouth_Non_Jump_Shot(TestCase):
     @patch('basketball.get_new_defense_choice', return_value=6.0)
     @patch('basketball.get_dartmouth_ball_choice', return_value=2)
     @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
-    def test_dartmouth_non_jump_shot_change_defense(self, input, input2,input3):
+    def test_dartmouth_non_jump_shot_change_defense(self, input, input2, input3):
         basketball_obj = Basketball()
         basketball_obj.shot = 0
         basketball_obj.defense = 7
         basketball_obj.time = 20
         basketball_obj.dartmouth_non_jump_shot()
+
+class Test_Opponent_Non_Jumpshot(TestCase):
+
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number1', return_value=0.5)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number2', return_value=0.6)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number3', return_value=0.8)
+    @patch('basketball.Basketball.set_opponent_ball_random_number1', return_value=0.3)
+    @patch('basketball.Basketball.set_opponent_jump_shot_random_number1', return_value=0.1)
+    @patch('basketball.get_dartmouth_ball_choice', return_value=2)
+    @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
+    def test_opponent_non_jump_shot_Ball_stolen(self,input,input2,input3,input4,input5,input6,input7):
+        basketball_obj = Basketball()
+        basketball_obj.defense = 6
+        basketball_obj.z1 = 2.2
+        basketball_obj.time = 20
+        basketball_obj.opponent_non_jumpshot()
+
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number1', return_value=0.5)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number2', return_value=0.6)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number3', return_value=0.6)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number4', return_value=0.6)
+    @patch('basketball.get_dartmouth_ball_choice', return_value=2)
+    @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
+    def test_opponent_non_jump_shot_more_than_once(self, input, input2, input3, input4, input5, input6):
+        basketball_obj = Basketball()
+        basketball_obj.defense = 6
+        basketball_obj.z1 = 2.2
+        basketball_obj.time = 20
+        basketball_obj.opponent_non_jumpshot()
+
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number1', return_value=0.5)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number2', return_value=0.6)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number5', return_value=0.6)
+    @patch('basketball.get_dartmouth_ball_choice', return_value=2)
+    @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
+    def test_opponent_non_jump_defense_not_6_opponent_non_jumpshot(self, input, input2, input3, input4, input5):
+        basketball_obj = Basketball()
+        basketball_obj.defense = 7
+        basketball_obj.z1 = 2.2
+        basketball_obj.time = 20
+        basketball_obj.opponent_non_jumpshot()
+
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number1', return_value=0.5)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number2', return_value=0.6)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number5', return_value=0.4)
+    @patch('basketball.Basketball.set_opponent_ball_random_number1', return_value=0.3)
+    @patch('basketball.Basketball.set_opponent_jump_shot_random_number1', return_value=0.1)
+    @patch('basketball.get_dartmouth_ball_choice', return_value=2)
+    @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
+    def test_opponent_non_jump_defense_not_6_opponent_ball(self, input, input2, input3, input4, input5,input6,input7):
+        basketball_obj = Basketball()
+        basketball_obj.defense = 7
+        basketball_obj.z1 = 2.2
+        basketball_obj.time = 20
+        basketball_obj.opponent_non_jumpshot()
+
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number1', return_value=0.5)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number2', return_value=0.6)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number3', return_value=0.6)
+    @patch('basketball.Basketball.set_opponent_non_jump_shot_random_number4', return_value=0.4)
+    @patch('basketball.Basketball.set_opponent_ball_random_number1', return_value=0.3)
+    @patch('basketball.Basketball.set_opponent_jump_shot_random_number1', return_value=0.1)
+    @patch('basketball.get_dartmouth_ball_choice', return_value=2)
+    @patch('basketball.Basketball.set_dartmouth_ball_random_number', return_value=0.6)
+    def test_opponent_non_jump_shot_opponent_ball(self, input, input2, input3, input4, input5, input6, input7,input8):
+        basketball_obj = Basketball()
+        basketball_obj.defense = 6
+        basketball_obj.z1 = 2.2
+        basketball_obj.time = 20
+        basketball_obj.opponent_non_jumpshot()
+
+
+
+class Test_Foul_Shot(TestCase):
+
+    @patch('basketball.Basketball.get_foul_shot_random', return_value=0.52)
+    def test_dartmouth_non_jump_shot_halftime_two_minute_warning_charging_foul(self,input):
+        basketball_obj = Basketball()
+        basketball_obj.score[0] = 0
+        basketball_obj.foul_shots(0)
+        self.assertEqual(basketball_obj.score[0], 1)
 
 
 class Test_Dartmouth_jump_shot_random_numbers(TestCase):
