@@ -1,4 +1,4 @@
-from unittest import TestCase
+from unittest import BaseTestSuite, TestCase
 
 from basketball import *
 from parameterized import parameterized
@@ -75,10 +75,7 @@ class Test_BasketBall(unittest.TestCase):
         basketball_obj = Basketball()
         basketball_obj.is_halftime()
         self.assertEqual(basketball_obj.is_halftime(), False)
-
-    def test_print_score(self):
-        pass
-    
+       
     def test_two_minute_warning(self):
         basketball_obj = Basketball()
         basketball_obj.two_minute_warning()
@@ -86,7 +83,7 @@ class Test_BasketBall(unittest.TestCase):
 
     def test_dartmouth_jump_shot(self):
         basketball_obj = Basketball()
-        # set defense choice
+        # set defense choices
         mock_defense_choice = Mock(get_defense_choice, return_value=6)
         basketball_obj.defense = mock_defense_choice()
         # set opponents name
@@ -148,6 +145,18 @@ def test_print_intro(capfd):
 
 
 
+class Test_Print_Score_function(TestCase):
+    def test_print_score(self):
+            capturedOutput = io.StringIO()                  # Create StringIO object
+            sys.stdout = capturedOutput   
+            basketball_obj = Basketball()
+            basketball_obj.score = [3,2]
+            basketball_obj.print_score()
+            sys.stdout = sys.__stdout__
+            expectedString = f"Score:  {basketball_obj.score[1]} to {basketball_obj.score[0]}\n\n"
+            self.assertEqual(capturedOutput.getvalue(), expectedString)
+
+
 class Test_Start_Of_Period_function(TestCase):
 
     @patch('basketball.get_dartmouth_ball_choice', return_value=2)
@@ -176,6 +185,10 @@ class Test_Start_Of_Period_function(TestCase):
         expectedOpponentString = "Center jump\n" + basketball_obj.opponent + " controls the tap.\n"
         lengthOfExpectedOpponentString = len(expectedOpponentString)
         self.assertEqual(capturedOutput.getvalue()[0:(lengthOfExpectedOpponentString)],(expectedOpponentString))
+
+
+
+        
 
 
 
