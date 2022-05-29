@@ -163,6 +163,22 @@ class Test_Start_Of_Period_function(TestCase):
         self.assertEqual(capturedOutput.getvalue()[0:(lengthOfExpectedDartmouthString)],'Center jump\nDartmouth controls the tap.\n')
 
 
+    @patch('basketball.set_and_return_shot', return_value = 1)
+    @patch('basketball.Basketball.get_random_number_for_starting', return_value=0.3)
+    def test_start_of_period_opponent_ball(self, mock_stdout, input):
+        capturedOutput = io.StringIO()                  # Create StringIO object
+        sys.stdout = capturedOutput   
+        basketball_obj = Basketball()
+        basketball_obj.opponent = "SU"
+        basketball_obj.defense = 1
+        basketball_obj.start_of_period()
+        sys.stdout = sys.__stdout__ 
+        expectedOpponentString = "Center jump\n" + basketball_obj.opponent + " controls the tap.\n"
+        lengthOfExpectedOpponentString = len(expectedOpponentString)
+        self.assertEqual(capturedOutput.getvalue()[0:(lengthOfExpectedOpponentString)],(expectedOpponentString))
+
+
+
 
 class Test_Input_start_game_start_of_period(TestCase):
 
