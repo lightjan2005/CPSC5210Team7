@@ -93,16 +93,30 @@ class Basketball:
         """Print the current score"""
         print(f"Score:  {self.score[1]} to {self.score[0]}\n")
 
+    # def start_of_period(self) -> None:
+    #     """Simulate a center jump for posession at the beginning of a period"""
+    #     print("Center jump")
+    #     random = self.set_random_number()
+    #     if random > 0.6:
+    #         print("Dartmouth controls the tap.\n")
+    #         self.dartmouth_ball()
+    #     else:
+    #         print(self.opponent + " controls the tap.\n")
+    #         self.opponent_ball()
+
+
+    """new version of start_of_period that supports mocking"""
     def start_of_period(self) -> None:
         """Simulate a center jump for posession at the beginning of a period"""
         print("Center jump")
-        random = self.set_random_number()
-        if random > 0.6:
+        randomNum = self.get_random_number_for_starting()
+        if randomNum > 0.6:
             print("Dartmouth controls the tap.\n")
             self.dartmouth_ball()
         else:
             print(self.opponent + " controls the tap.\n")
             self.opponent_ball()
+
 
     def two_minute_warning(self) -> None:
         """called when t = 3"""
@@ -491,6 +505,10 @@ class Basketball:
 
     def get_foul_shot_random(self) -> float:
         return random.random()
+    
+    def get_random_number_for_starting(self) -> float:
+        num = random.random()
+        return num
 
 
 # modify try except to defense input and use for loop to convert each char to float, if contain non-changeable char,

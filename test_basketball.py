@@ -4,6 +4,9 @@ from basketball import *
 from parameterized import parameterized
 from unittest.mock import Mock, patch
 import unittest
+import io
+import sys
+
 
 
 class Test_BasketBall(unittest.TestCase):
@@ -75,10 +78,7 @@ class Test_BasketBall(unittest.TestCase):
 
     def test_print_score(self):
         pass
-
-    def test_start_of_period(self):
-        pass
-
+    
     def test_two_minute_warning(self):
         basketball_obj = Basketball()
         basketball_obj.two_minute_warning()
@@ -145,6 +145,23 @@ def test_print_intro(capfd):
                   "30ft.) Jump Shot; \n2. Short (15 ft.) Jump Shot; \n3. Lay up; 4. Set Shot\nBoth teams will use the " \
                   "same defense. Call Defense as follows:\n6. Press; 6.5 Man-to-Man; 7. Zone; 7.5 None.\nTo change " \
                   "defense, just type 0 as your next shot.\nYour starting defense will be?\n"
+
+
+
+class Test_Start_Of_Period_function(TestCase):
+
+    @patch('basketball.get_dartmouth_ball_choice', return_value=2)
+    @patch('basketball.Basketball.get_random_number_for_starting', return_value=0.7)
+    def test_start_of_period_dartmouth_ball(self, mock_stdout, input):
+        capturedOutput = io.StringIO()                  # Create StringIO object
+        sys.stdout = capturedOutput   
+        basketball_obj = Basketball()
+        basketball_obj.defense = 1
+        basketball_obj.start_of_period()
+        sys.stdout = sys.__stdout__ 
+        lengthOfExpectedDartmouthString = 40
+        self.assertEqual(capturedOutput.getvalue()[0:(lengthOfExpectedDartmouthString)],'Center jump\nDartmouth controls the tap.\n')
+
 
 
 class Test_Input_start_game_start_of_period(TestCase):
