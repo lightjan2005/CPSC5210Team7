@@ -3,6 +3,7 @@ from unittest import BaseTestSuite, TestCase
 from basketball import *
 from parameterized import parameterized
 from unittest.mock import Mock, patch
+import py_compile
 import unittest
 import io
 import sys
@@ -819,3 +820,10 @@ class Test_Dartmouth_jump_shot_random_numbers(TestCase):
         self.assertTrue(0 < num14 < 1)
         self.assertTrue(0 < num15 < 1)
         self.assertTrue(0 < num16 < 1)
+
+if __name__ == "__main__":
+    try:
+        print(py_compile.compile("test_basketball.py", doraise=True))
+        print("compiled and built successfully\n\n\n")
+    except py_compile.PyCompileError:
+        print("Compilation failed!")
