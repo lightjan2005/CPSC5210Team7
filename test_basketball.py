@@ -803,7 +803,7 @@ class Test_Dartmouth_jump_shot_random_numbers(TestCase):
 
         num15 = basketball_obj.set_dartmouth_ball_random_number()
         num16 = basketball_obj.set_dartmouth_non_jump_shot_random_number1()
-
+        num17 = basketball_obj.set_random_number()
         self.assertTrue(0 < num1 < 1)
         self.assertTrue(0 < num2 < 1)
         self.assertTrue(0 < num3 < 1)
@@ -820,10 +820,5 @@ class Test_Dartmouth_jump_shot_random_numbers(TestCase):
         self.assertTrue(0 < num14 < 1)
         self.assertTrue(0 < num15 < 1)
         self.assertTrue(0 < num16 < 1)
+        self.assertTrue(0 < num17 < 1)
 
-if __name__ == "__main__":
-    try:
-        print(py_compile.compile("test_basketball.py", doraise=True))
-        print("compiled and built successfully\n\n\n")
-    except py_compile.PyCompileError:
-        print("Compilation failed!")
