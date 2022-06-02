@@ -84,7 +84,7 @@ class Basketball:
         # self.start_of_period()
 
     def is_halftime(self) -> bool:
-        if self.time == 10:
+        if self.time == 12:
             return True
         else:
             return False
@@ -126,9 +126,9 @@ class Basketball:
     def dartmouth_jump_shot(self) -> None:
         """called when the user enters 1 or 2 for their shot"""
         self.time += 1
-        if self.time == 10:
+        if self.time == 12:
             self.halftime()
-        elif self.time == 12:
+        elif self.time == 22:
             self.two_minute_warning()
         print("Jump Shot.")
         # simulates chances of different possible outcomes
@@ -193,9 +193,9 @@ class Basketball:
         """
 
         self.time += 1
-        if self.time == 10:
+        if self.time == 12:
             self.halftime()
-        elif self.time == 12:
+        elif self.time == 22:
             self.two_minute_warning()
 
         if self.shot == 4:
@@ -252,7 +252,7 @@ class Basketball:
         self.shot = shot
 
         random_number1 = self.set_dartmouth_ball_random_number()
-        if self.time < 20 or random_number1 < 0.5:
+        if self.time < 24 or random_number1 < 0.5:
             if self.shot == 1 or self.shot == 2:
                 self.dartmouth_jump_shot()
             else:
@@ -392,7 +392,7 @@ class Basketball:
         random_number_1 = self.set_opponent_ball_random_number1()
 
         self.time += 1
-        if self.time == 2:
+        if self.time == 12:
             self.halftime()
         self.z1 = 10 / 4 * random_number_1 + 1
         if self.z1 > 2:
